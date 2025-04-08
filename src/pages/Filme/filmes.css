@@ -1,0 +1,235 @@
+App.css
+/* Estilos gerais da aplicação */
+.app-container {
+  text-align: center; /* Centraliza o texto horizontalmente */
+  padding: 20px;      /* Adiciona um espaço interno de 20px em todos os lados */
+}
+ 
+/* Container que envolve todos os cards de filmes */
+.filmes-container {
+  display: flex;          /* Habilita o Flexbox */
+  flex-wrap: wrap;        /* Permite que os cards quebrem para a próxima linha */
+  justify-content: space-around; /* Distribui os cards uniformemente */
+}
+ 
+/* Estilo individual de cada card de filme */
+.filme-card {
+  width: 350px;          /* Largura fixa do card */
+  height: 350px;         /* Altura fixa do card */
+  margin-bottom: 20px;    /* Espaço abaixo de cada card */
+  border: 1px solid #ccc; /* Borda de 1px, cor cinza claro */
+  border-radius: 8px;     /* Arredonda os cantos */
+  overflow: hidden;       /* Esconde o conteúdo que ultrapassa as bordas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra suave */
+  transition: transform 0.2s ease-in-out;    /* Animação suave */
+  text-align: left;       /* Alinha o texto à esquerda dentro do card */
+  display: flex;          /* Habilita o Flexbox */
+  flex-direction: column; /* Organiza os elementos verticalmente */
+}
+ 
+/* Efeito de "levantar" o card ao passar o mouse */
+.filme-card:hover {
+  transform: translateY(-15px); /* Move o card 5px para cima */
+}
+ 
+/* Estilo da imagem do filme */
+.filme-imagem {
+  width: 100%;        /* Largura total do card */
+  height: 60%;       /* Altura da imagem ocupa 60% do card */
+  object-fit: cover;   /* Preenche o espaço mantendo a proporção e cortando se necessário */
+  display: block;      /* Remove espaço extra abaixo da imagem */
+}
+ 
+/* Informações do filme (título e descrição) */
+.filme-info {
+  padding: 10px;            /* Espaço interno de 10px */
+  flex-grow: 1;            /* Permite que as informações preencham o espaço restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+ 
+/* Estilo do título do filme */
+.filme-info h2 {
+  font-size: 1.2em;        /* Tamanho da fonte */
+  margin-bottom: 5px;      /* Espaço abaixo do título */
+  color: #333;             /* Cor do texto (cinza escuro) */
+  overflow: hidden;        /* Esconde o texto que ultrapassa */
+  text-overflow: ellipsis; /* Adiciona "..." ao texto que ultrapassa */
+  white-space: nowrap;   /* Impede que o texto quebre para a próxima linha */
+}
+ 
+/* Estilo da descrição do filme */
+.filme-info p {
+  font-size: 0.9em;        /* Tamanho da fonte */
+  color: #777;             /* Cor do texto (cinza médio) */
+  overflow: hidden;        /* Esconde o texto que ultrapassa */
+  text-overflow: ellipsis; /* Adiciona "..." ao texto que ultrapassa */
+  display: -webkit-box;   /* Habilita o corte de texto em múltiplas linhas */
+  -webkit-line-clamp: 3;  /* Limita a descrição a 3 linhas */
+  -webkit-box-orient: vertical; /* Define a orientação do corte */
+  white-space: normal;    /* Permite que o texto quebre para a próxima linha */
+}
+ 
+src>pages>Home
+/* Garante que o container da Home ocupe o espaço disponível */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ocupa a largura disponível dentro do .app */
+    max-width: 900px; /* Define uma largura máxima para o conteúdo */
+    padding: 20px;
+    box-sizing: border-box; /* Inclui padding na largura/altura total */
+}
+ 
+.lista-filmes {
+    width: 100%;
+    margin: 15px 0; /* Ajusta margem */
+}
+ 
+.lista-filmes article {
+    background-color: #fff;
+    margin-bottom: 25px; /* Aumenta espaço entre artigos */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    display: flex;
+    flex-direction: column;
+    /* Removido justify-content: center; pois pode não ser necessário */
+}
+ 
+.lista-filmes strong {
+    padding-bottom: 15px;
+    font-size: 22px;
+    text-align: center; /* Centraliza o título */
+    color: #333;
+}
+ 
+.lista-filmes img {
+    width: 100%;
+    max-height: 450px; /* Define altura máxima */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    border-radius: 4px; /* Pequeno arredondamento na imagem */
+    margin-bottom: 15px; /* Espaço após a imagem */
+}
+ 
+.lista-filmes article a {
+    text-decoration: none;
+    color: #fff;
+    background-color: brown; /* Mantém a cor */
+    font-size: 18px; /* Leve ajuste */
+    width: 100%;
+    padding: 12px 0; /* Ajusta padding vertical */
+    border-radius: 4px; /* Borda consistente */
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Inclui padding na largura total */
+    margin-top: auto; /* Empurra o botão para o final do article se houver <p> */
+}
+ 
+.lista-filmes article a:hover {
+    background-color: #8a2525; /* Cor um pouco mais escura no hover */
+}
+ 
+src>pages>filme
+/* Container já definido globalmente ou em App.css, mas pode ser específico aqui */
+/* .container { ... } */
+ 
+.filme-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ocupar largura do container pai */
+    max-width: 800px; /* Largura máxima */
+    margin-top: 20px; /* Espaço acima */
+    background-color: #fff; /* Mover fundo para cá */
+    padding: 25px; /* Aumentar padding interno */
+    border-radius: 8px; /* Bordas mais arredondadas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+    box-sizing: border-box;
+}
+ 
+/* Remover margem e padding do article se o fundo/sombra estiver no .filme-info */
+.filme-info article {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+ 
+.filme-info h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+ 
+.filme-info img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain; /* Usar contain se quiser ver a imagem toda */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+ 
+.filme-info h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #444;
+    border-bottom: 1px solid #eee; /* Linha sutil abaixo do subtítulo */
+    padding-bottom: 5px;
+}
+ 
+.filme-info p {
+    line-height: 1.6; /* Melhora a legibilidade */
+    color: #555;
+    margin-bottom: 25px; /* Espaço após a sinopse */
+}
+ 
+.botoes {
+    display: flex; /* Coloca os botões lado a lado */
+    gap: 15px; /* Espaço entre os botões */
+    margin-top: 20px; /* Espaço acima dos botões */
+    justify-content: center; /* Centraliza os botões */
+}
+ 
+/* Estilo base para botões e links que parecem botões */
+.filme-info button,
+.botao-link {
+    cursor: pointer;
+    border-radius: 5px;
+    border: none; /* Remover borda padrão */
+    font-size: 18px; /* Tamanho consistente */
+    padding: 12px 25px; /* Mais padding */
+    transition: all 0.3s ease;
+    text-decoration: none; /* Garante que links não tenham sublinhado */
+    display: inline-block; /* Necessário para padding em links */
+    text-align: center;
+}
+ 
+/* Estilo específico do botão Salvar */
+.filme-info button {
+    background-color: brown;
+    color: #fff;
+}
+ 
+.filme-info button:hover {
+    background-color: #a52a2a; /* Escurece no hover */
+    transform: scale(1.03); /* Leve efeito de zoom */
+}
+ 
+/* Estilo específico do link Trailer (para parecer botão) */
+.botao-link {
+    background-color: #555; /* Cor diferente para o trailer */
+    color: #fff;
+}
+ 
+.botao-link:hover {
+    background-color: #333;
+    color: #fff; /* Garante que a cor do texto permaneça */
+    transform: scale(1.03);
+}
+ 
+/* Remover estilos antigos que conflitavam */
+/* .filme-info a { ... } */
+/* .filme-info a:hover { ... } */
+ 
