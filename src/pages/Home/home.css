@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 /* Garante que o container da Home ocupe o espaço disponível */
+=======
+>>>>>>> 331786b (Commit alterações)
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+<<<<<<< HEAD
     width: 100%; /* Ocupa a largura disponível dentro do .app */
     max-width: 900px; /* Define uma largura máxima para o conteúdo */
     padding: 20px;
@@ -57,3 +61,95 @@
 .lista-filmes article a:hover {
     background-color: #8a2525; /* Cor um pouco mais escura no hover */
 }
+=======
+}
+
+.lista-filmes {
+    width: 70vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.lista-filmes article {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.lista-filmes strong {
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.lista-filmes img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.lista-filmes a {
+    margin-top: 10px;
+    background-color: #116feb;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.4rem;
+    border-radius: 4px;
+    transition: all 300ms ease-in-out;
+    text-align: center;
+    display: block;
+}
+
+.lista-filmes a:hover {
+    background-color: #0d45a5;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.loading .circle {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 5px;
+    animation: loading 0.6s infinite alternate;
+}
+
+.loading .circle:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading .circle:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loading {
+    0% {
+        opacity: initial;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.error {
+    padding: 20px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: red;
+}
+
+@media (max-width: 700px) {
+    .lista-filmes {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+>>>>>>> 331786b (Commit alterações)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect} from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -89,3 +90,91 @@ return(
     
     
 )
+=======
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import api from "../../services/api";
+import "./filme.css";
+
+export default function Filme() {
+    
+    // vamos pegar o id da url
+    const { id } = useParams();
+
+    // vamos usar o useNavigate (hook) para navegação
+    const navigate = useNavigate();
+
+    const [filme, setFilme] = useState(null);
+    const [loading, setLoading] = useState(true);    
+
+    // quando a pagina for carregada vamos buscar o filme na api
+    useEffect(() => {
+        async function lerFilme() {
+            setLoading(true);
+            try {
+                const response = await api.get(`r-api/?api=filmes/${id}`);
+                setFilme(response.data);
+            } catch (error) {
+                console.log('Deu erro a carregar o filme ', error);
+                navigate("/", {replace: true});
+                return;
+            } finally {
+                setLoading(false);              
+                
+            }
+        }
+        lerFilme();
+    }, [id, navigate]);
+
+    function salvarFilme() {
+        const minhaLista = localStorage.getItem("@primeflix");
+
+        let filmesSalvos = JSON.parse(minhaLista) || [];
+
+        const hasFilme = filmesSalvos.some((filmesSalvo) => filmesSalvo.id === filme.id);
+
+        if (hasFilme) {
+            toast.warn("Você já possui esse filme salvo!");
+            return;
+        }
+
+        filmesSalvos.push(filme);
+        localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos));
+        toast.success("Filme salvo com sucesso!");
+    }
+
+    if (loading) {
+        return (
+            <div className="filme-info">
+                <h1>Carregando Filme...</h1>
+            </div>
+        )
+    }
+    
+    // vamos exibit o detalhes
+    return (
+        <div className="container">
+          <div className="filme-info">
+            <article>
+                <h1>{filme.nome}</h1>
+                <img src={filme.foto} alt={filme.nome} />
+                <h3>Sinopse</h3>
+                <p>{filme.sinopse}</p>
+                <div className="botoes">
+                    <button onClick={salvarFilme}>Salvar</button>
+                    <button>
+                        <a target="blank" rel="external" 
+                        href={`https://youtube.com/results?search_query=${encodeURIComponent(filme.nome)}
+                          +  ' trailer')}`}
+                          className="botao-link"
+                          >
+                            Trailer
+                        </a>
+                    </button>
+                </div>
+            </article>
+          </div>
+        </div>
+)}  
+>>>>>>> 331786b (Commit alterações)

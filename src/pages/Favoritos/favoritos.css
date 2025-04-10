@@ -1,0 +1,132 @@
+/* Container já definido globalmente ou em App.css */
+/* .container { ... } */
+ 
+.filmes-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.filmes-container h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lista-vazia {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--white);
+    padding: 30px;
+    background-color: var(--gray-dark);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(93, 0, 255, 0.2);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: var(--gray-dark);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(93, 0, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(93, 0, 255, 0.3);
+}
+
+ul li span {
+    font-size: 1.1rem;
+    color: var(--white);
+    flex-grow: 1;
+}
+
+.acoes {
+    display: flex;
+    gap: 15px;
+}
+
+.acoes a,
+.acoes button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.acoes a {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.acoes a:hover {
+    background-color: #4a00cc;
+    transform: translateY(-2px);
+}
+
+.acoes button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+}
+
+.acoes button:hover {
+    background-color: #1a1026;
+    transform: translateY(-2px);
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.loading-container h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .filmes-container {
+        margin: 20px auto;
+    }
+
+    .filmes-container h2 {
+        font-size: 1.5rem;
+    }
+
+    ul li {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .acoes {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .acoes a,
+    .acoes button {
+        width: 100%;
+    }
+}
